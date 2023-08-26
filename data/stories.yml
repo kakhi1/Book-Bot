@@ -30,5 +30,5 @@ stories:
 
   - story: get book price
     steps:
-      - intent: get_book
+      - intent: get_book_price
       - action: action_get_book_price

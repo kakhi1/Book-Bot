@@ -90,7 +90,28 @@ nlu:
       - am I talking to a bot?
       - am I talking to a human?
 
-  - intent: get_book
+  - intent: get_book_price
     examples: |
-      - i need (The Great Gatsby)
-      - Show me price (The Great Gatsby )
+      - What's the price of [Alice's Adventures in Wonderland](book_name)?
+      - How much does [Moby-Dick](book_name) cost?
+      - Can you tell me the price of [Pride and Prejudice](book_name)?
+      - How much does [1984](book_name) cost?
+      - Can you provide the price for [The Catcher in the Rye](book_name)?
+      - Tell me the cost of [The Hobbit](book_name).
+      - What's the price of [War and Peace](book_name)?
+      - How much is [To Kill a Mockingbird](book_name)?
+      - Please tell me the price of [Lord of the Rings](book_name).
+      - What is the cost of [Brave New World](book_name)?
+      - Can you find the price of [The Great Gatsby](book_name)?
+      - Tell me the price of [The Da Vinci Code](book_name).
+      - What's the cost of [Harry Potter and the Sorcerer's Stone](book_name)?
+      - How much does [The Hunger Games](book_name) cost?
+      - Please provide the price for [Fahrenheit 451](book_name).
+      - What's the price of [Catch-22](book_name)?
+      - Can you tell me the cost of [The Alchemist](book_name)?
+      - How much is [Gone with the Wind](book_name)?
+      - I'm interested in [The Shining](book_name), what's the price?
+      - Could you find the price of [A Tale of Two Cities](book_name)?
+      - What's the price of [The Lord of the Flies](book_name)? 
+
+    

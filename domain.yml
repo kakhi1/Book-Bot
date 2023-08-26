@@ -9,8 +9,7 @@ intents:
   - mood_unhappy
   - bot_challenge
   - who_creator
-  - get_username
-  - get_book
+  - get_book_price
 
 entities:
   - book_name
@@ -22,8 +21,7 @@ slots:
       - type: from_entity
         entity: book_name
 
-actions:
-  - action_hello_world
+actions: 
   - action_get_book_price
 
 responses:
@@ -50,11 +48,6 @@ responses:
     - text: "My owner is a Data Scientist of Manifold AI learning"
     - text: "I am created by a Data Scientist of Manifold AI learning"
     - text: "I am student of Manifold AI learning"
-
-  utter_welcome:
-    - text: Welcome dear {PERSON}
-    - text: Thats a vary nice name {PERSON}, nice to meet you
-    - text: WoW!!! good to know you {PERSON}
 
 session_config:
   session_expiration_time: 60
