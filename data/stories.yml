@@ -1,6 +1,14 @@
 version: "3.1"
 
 stories:
+  
+  - story: bot-start-conversation
+    steps:
+      - intent: greet
+      - action: action_present_yourself
+      - intent: affirm
+      - action: action_present_choices
+     
   - story: happy path
     steps:
       - intent: greet
@@ -32,3 +40,8 @@ stories:
     steps:
       - intent: get_book_price
       - action: action_get_book_price
+
+  - story: get book description
+    steps:
+      - intent: get_book_info
+      - action: action_get_book_info  

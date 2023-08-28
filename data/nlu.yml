@@ -84,11 +84,30 @@ nlu:
       - so sad
 
   - intent: bot_challenge
-    examples: |
+    examples: |      
       - are you a bot?
       - are you a human?
       - am I talking to a bot?
       - am I talking to a human?
+      - what are you?
+      - who's on the other side?
+      - human or machine?
+      - is this an AI?
+      - is there a real person here?
+      - who are you?
+      - can you introduce yourself?
+      - tell me about yourself
+      - what's your identity?
+      - what should I call you?
+      - give me your name
+      - tell me your purpose
+      - what can you do?
+      - what are your abilities?
+      - what tasks do you handle?
+      - how can you help me?
+      - tell me your skills
+      - explain your functions
+      - list your features
 
   - intent: get_book_price
     examples: |
@@ -113,5 +132,26 @@ nlu:
       - I'm interested in [The Shining](book_name), what's the price?
       - Could you find the price of [A Tale of Two Cities](book_name)?
       - What's the price of [The Lord of the Flies](book_name)? 
-
-    
+ 
+  - intent: get_book_info
+    examples: |
+      - What's [Frankenstein](book_name) about?
+      - Could you give me a brief overview of [The Chronicles of Narnia](book_name)?
+      - Can you provide a summary of [A Game of Thrones](book_name)?
+      - Tell me about [The Little Prince](book_name).
+      - What's the story behind [The Odyssey](book_name)?
+      - Please describe [The Picture of Dorian Gray](book_name).
+      - What is [The Grapes of Wrath](book_name) about?
+      - Can you give me an overview of [One Hundred Years of Solitude](book_name)?
+      - Tell me the plot of [The Count of Monte Cristo](book_name).
+      - What's the premise of [Anna Karenina](book_name)?
+      - Can you provide a description of [Wuthering Heights](book_name)?
+      - Tell me about [Pride and Prejudice](book_name) by Jane Austen.
+      - What's [The Catcher in the Rye](book_name) by J.D. Salinger about?
+      - Could you summarize [War and Peace](book_name) by Leo Tolstoy?
+      - Please describe [To Kill a Mockingbird](book_name) by Harper Lee.
+      - What is the book [Brave New World](book_name) by Aldous Huxley about?
+      - Can you give me an overview of [The Great Gatsby](book_name) by F. Scott Fitzgerald?
+      - Tell me the story behind [The Da Vinci Code](book_name) by Dan Brown.
+      - I'm curious about [The Lord of the Rings](book_name) by J.R.R. Tolkien, could you describe it?
+      - Could you provide a summary of [The Alchemist](book_name) by Paulo Coelho?

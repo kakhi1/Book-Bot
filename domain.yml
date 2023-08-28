@@ -10,6 +10,7 @@ intents:
   - bot_challenge
   - who_creator
   - get_book_price
+  - get_book_info
 
 entities:
   - book_name
@@ -23,6 +24,9 @@ slots:
 
 actions: 
   - action_get_book_price
+  - action_present_yourself
+  - action_present_choices
+  - action_get_book_info
 
 responses:
   utter_greet:
@@ -42,12 +46,11 @@ responses:
     - text: "Bye"
 
   utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
+    - text: "I am Book Bot. I can help you find books and provide you with their prices."
 
   utter_creator:
-    - text: "My owner is a Data Scientist of Manifold AI learning"
     - text: "I am created by a Data Scientist of Manifold AI learning"
-    - text: "I am student of Manifold AI learning"
+    - text: "Created by Kakhi Mtchedluri"
 
 session_config:
   session_expiration_time: 60
