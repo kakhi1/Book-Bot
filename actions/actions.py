@@ -33,7 +33,7 @@ class ActionBooksAPI(Action):
         base_url = "https://www.googleapis.com/books/v1/volumes"    
         params = {
             "q": f"intitle:{book_name}",
-            "country": "us",
+            "country": 'US',
             "key": GOOGLE_API_KEY 
 ,
         }
@@ -137,8 +137,9 @@ class ActionBooksAPI(Action):
     
         params = {
             "q": f"intitle:{book_name}",
+            "country": 'US',
             "key": GOOGLE_API_KEY ,
-            "h1": "en"  # Request English language content
+            
         }
     
         response = requests.get(base_url, params=params)
