@@ -100,8 +100,8 @@ class ActionPresentChoices(Action):
     
         params = {
             "q": f"intitle:{book_name}",
+            "country": 'US',
             "key": api_key,
-            "hl": "en"  # Request English language content
         }
     
         response = requests.get(base_url, params=params)

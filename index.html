@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <style>
+      #chat-container {
+        width: 400px;
+        height: 500px;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      #chat-messages {
+        height: 400px;
+        overflow-y: scroll;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      #user-input {
+        width: 100%;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat-container">
+      <div id="chat-messages"></div>
+      <input type="text" id="user-input" placeholder="Type your message" />
+    </div>
+
+    <script>
+      const chatMessages = document.getElementById("chat-messages");
+      const userInput = document.getElementById("user-input");
+
+      userInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          sendMessage(userInput.value);
+          userInput.value = "";
+        }
+      });
+
+      async function sendMessage(message) {
+        displayMessage("User", message);
+
+        try {
+          const response = await fetch(
+            "http://localhost:8098/webhooks/rest/webhook",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                sender: "test1",
+                message: message,
+              }),
+            }
+          );
+
+          const data = await response.json();
+          console.log(data);
+          const botResponse = data.map((message) => {
+            if (message.text !== undefined) {
+              return message.text;
+            } else if (message.image !== undefined) {
+              return message.image;
+            }
+          });
+
+          displayMessage("Chatbot", botResponse);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      function displayMessage(sender, message) {
+        const messageElement = document.createElement("div");
+        messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        chatMessages.appendChild(messageElement);
+      }
+    </script>
+  </body>
+</html>
