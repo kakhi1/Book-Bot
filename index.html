@@ -3,43 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bookBot</title>
+    <title>book Bot</title>
     <style>
       .header {
         display: flex;
         justify-content: space-between;
+        border-left: 2px solid rgb(11, 5, 5);
+        border-right: 2px solid rgb(11, 5, 5);
+        border-top: 2px solid rgb(11, 5, 5);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: beige;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 3px;
         width: 400px;
-        height: 50px;       
+        height: 40px;
         margin: 0 auto;
         padding: 20px;
       }
       #chat-container {
         width: 400px;
         height: 500px;
-        border: 2px solid #ccc;
+        border: 2px solid rgb(11, 5, 5);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
         margin: 0 auto;
         padding: 20px;
       }
       #chat-messages {
         height: 400px;
         overflow-y: scroll;
-        /* border: 1px solid #ccc; */
         padding: 10px;
         margin-bottom: 10px;
       }
       #user-input {
-        width: 100%;
+        width: 97%;
         height: 50px;
         padding: 5px;
+      }
+      .botName {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .iconName:hover {
+        animation: spinAnimation 2s linear infinite;
+      }
+      .name {
+        animation: transition 2s linear;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        border-radius: 100%;
+      }
+
+      .message {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      .message-text {
+        margin-left: 5px;
+        background-color: beige;
+        padding: 15px 15px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 90%;
+      }
+
+      @keyframes spinAnimation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes transition {
+        from {
+          transform: translateX(-40px);
+        }
+        to {
+          transform: translateX(0px);
+        }
       }
     </style>
   </head>
   <body>
-    <header >
+    <header>
       <h1 class="header">
-        <img src="assets/book boot icon.png" alt="First Image">
-         <span>BookBot</span>
-        <img src="your-icon.png" alt="Icon">
+        <div class="botName">
+          <img src="assets/botIcon.png" alt="First Image" />
+          <span class="name">Book Bot</span>
+        </div>
+
+        <img class="iconName" src="assets/reload (1).png" alt="Icon" />
       </h1>
     </header>
     <div id="chat-container">
@@ -92,9 +156,48 @@
         }
       }
 
+      // function displayMessage(sender, message) {
+      //   const messageElement = document.createElement("div");
+      //   const iconElement = document.createElement("img");
+      //   iconElement.classList.add("icon");
+      //   if (sender === "User") {
+      //     iconElement.src = "assets/userIcon.png";
+      //   } else if (sender === "Chatbot") {
+      //     iconElement.src = "assets/botIcon.png";
+      //   }
+      //   messageElement.appendChild(iconElement);
+
+      //   const textElement = document.createElement("div");
+      //   textElement.classList.add("message-text");
+      //   textElement.innerHTML = message;
+
+      //   messageElement.appendChild(textElement);
+      //   messageElement.classList.add("message");
+
+      //   chatMessages.appendChild(messageElement);
+      // }
       function displayMessage(sender, message) {
         const messageElement = document.createElement("div");
-        messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        const iconElement = document.createElement("img");
+        iconElement.classList.add("icon");
+        const textElement = document.createElement("div");
+        textElement.classList.add("message-text");
+
+        if (sender === "Chatbot") {
+          // Display "Chatbot" messages first
+          iconElement.src = "assets/botIcon.png";
+          textElement.innerHTML = message;
+          messageElement.appendChild(iconElement);
+          messageElement.appendChild(textElement);
+        } else if (sender === "User") {
+          // Display "User" messages last
+          textElement.innerHTML = message;
+          messageElement.appendChild(textElement);
+          iconElement.src = "assets/userIcon.png";
+          messageElement.appendChild(iconElement);
+        }
+
+        messageElement.classList.add("message");
         chatMessages.appendChild(messageElement);
       }
     </script>
