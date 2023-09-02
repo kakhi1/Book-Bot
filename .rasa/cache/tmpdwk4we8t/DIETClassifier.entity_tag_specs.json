@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-author_name",
+      "2": "I-author_name",
+      "3": "L-author_name",
+      "4": "U-author_name",
+      "5": "B-book_name",
+      "6": "I-book_name",
+      "7": "L-book_name",
+      "8": "U-book_name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-author_name": 1,
+      "I-author_name": 2,
+      "L-author_name": 3,
+      "U-author_name": 4,
+      "B-book_name": 5,
+      "I-book_name": 6,
+      "L-book_name": 7,
+      "U-book_name": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

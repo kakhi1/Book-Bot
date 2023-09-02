@@ -12,11 +12,11 @@ intents:
   - get_book_price
   - get_book_info
   - ask_buy_book
-  
-  
+  - get_author_books
 
 entities:
   - book_name
+  - author_name
 
 slots:
   book_name:
@@ -25,13 +25,18 @@ slots:
       - type: from_entity
         entity: book_name
 
-actions: 
+  author_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: author_name
+
+actions:
   - action_get_book_price
   - action_get_book_info
-  
+  - action_find_Books_by_author
 
 responses:
-
   utter_findout:
     - text: "What kind of book are you looking for? Do you know the name, author, or any description?"
 

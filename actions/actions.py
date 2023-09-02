@@ -68,6 +68,7 @@ class ActionBooksAPI(Action):
         dispatcher.utter_message(price_message)
 
 class ActionBooksAPI(Action):
+
     def name(self) -> Text:
         return "action_get_book_info"  
 
@@ -102,3 +103,43 @@ class ActionBooksAPI(Action):
         dispatcher.utter_message(description)
     
         return []
+
+class ActionDefaultFallback(Action):
+    def name(self) -> Text:
+        return "action_find_Books_by_author"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+    
+        # Get user message from Rasa tracker
+        author_name = tracker.latest_message.get('author_name')
+        print(author_name)
+
+        url = 'https://api.openai.com/v1/chat/completions'
+        headers = {
+            'Authorization': "OPEANAI_API_KEY",
+            'Content-Type': 'application/json'
+        }
+        data = {
+            'model': "gpt-3.5-turbo",
+            'messages': [
+                {'role': 'system', 'content': 'You are  chatbot name "book bot ". You will Find the names of books by author. Maxumum 7 books'},
+                {'role': 'user', 'content': 'You: ' + author_name}
+            ],
+            'max_tokens': 100
+        }
+        response = requests.post(url, headers=headers, json=data)
+
+        if response.status_code == 200:
+            chatgpt_response = response.json()
+            message = chatgpt_response['choices'][0]['message']['content']
+            dispatcher.utter_message(message)
+            print(message)
+        else:
+            # Handle error and return an event to indicate the action failed
+            dispatcher.utter_message("Sorry, I couldn't generate a response at the moment. Please try again later.")
+           
