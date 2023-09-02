@@ -155,3 +155,66 @@ nlu:
       - Tell me the story behind [The Da Vinci Code](book_name) by Dan Brown.
       - I'm curious about [The Lord of the Rings](book_name) by J.R.R. Tolkien, could you describe it?
       - Could you provide a summary of [The Alchemist](book_name) by Paulo Coelho?
+
+  - intent: ask_buy_book
+    examples: |
+      - I want to buy a book
+      - Can I purchase a book?
+      - How can I order a book?
+      - Book purchase
+      - I'd like to buy a book
+      - Can you help me get a book? 
+      - I want to purchase a book. Can you assist me?
+      - How can I go about buying a book from you?
+      - Do you offer a service to help me buy books?
+      - Where can I buy a book using your platform?
+      - I'm interested in buying a specific book. Can you guide me through the process?
+      - What's the procedure for purchasing books through your service?
+      - I need your help in acquiring a book. Can you provide assistance?
+      - Can you walk me through the steps of buying a book?
+      - Is it possible to order a book with your help?
+      - I'd like to know how to buy a book. Can you help?
+  
+  - intent: get_autor_name
+    examples: |
+
+  # - intent: ask_choose_book
+  #   examples: |    
+  #     - I'm looking for a good book to read. Can you recommend one?
+  #     - What books are popular right now? Can you suggest something?
+  #     - Help me find a book that suits my taste.
+  #     - I want to explore new books. Any recommendations?
+  #     - Can you give me some book suggestions?
+  #     - I'm not sure what to read next. Can you provide some options?
+  #     - Suggest a book that's suitable for someone who enjoys [genre].
+  #     - I need help deciding on a book. What do you suggest?
+  #     - Recommend a book based on my interests.
+  #     - Tell me about some highly-rated books you recommend.
+
+  # - intent: 
+  #   examples: |
+  #     - I'm interested in purchasing a science fiction book
+  #     - What sci-fi books do you have available?
+  #     - Do you carry any classic novels?
+  #     - Can you suggest a hardcover book for me?
+  #     - I'm in the mood for a mystery novel. Any recommendations?
+  #     - I'm looking for "The Catcher in the Rye" by J.D. Salinger
+  #     - Do you have any books by Stephen King?
+  #     - I'd like to buy a fantasy novel
+  #     - Show me your bestsellers in fiction
+  #     - Any new releases in non-fiction?
+  #     - Can you tell me about your self-help book selection?
+  #     - I want to explore your romance novels
+  #     - Show me books for kids
+  #     - What's popular in young adult fiction?
+  #     - Do you have any historical novels in stock?
+  #     - Can you recommend a biography for me?
+  #     - I'm searching for a cookbook
+  #     - Show me books on mindfulness and meditation
+  #     - Can I see your poetry book collection?
+  #     - Any graphic novels available?
+
+
+
+
+    

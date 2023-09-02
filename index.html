@@ -13,10 +13,11 @@
         border-top: 2px solid rgb(11, 5, 5);
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
-        background-color: beige;
+        background-color: #5b7c99;
         font-size: 24px;
         font-weight: 500;
         letter-spacing: 3px;
+        color: #e5e9ec;
         width: 400px;
         height: 40px;
         margin: 0 auto;
@@ -46,12 +47,13 @@
         display: flex;
         align-items: center;
         gap: 15px;
+
       }
-      .iconName:hover {
-        animation: spinAnimation 2s linear infinite;
-      }
-      .name {
-        animation: transition 2s linear;
+      .iconName.spin{
+        animation: spinAnimation 0.5s ease-in ;}
+      
+      .name{
+        animation: transition 2s linear ;
       }
       .icon {
         width: 24px;
@@ -70,7 +72,8 @@
 
       .message-text {
         margin-left: 5px;
-        background-color: beige;
+        background-color: #5b7c99;
+        color: #e5e9ec;
         padding: 15px 15px;
         border-radius: 10px;
         margin: 10px;
@@ -87,7 +90,7 @@
       }
       @keyframes transition {
         from {
-          transform: translateX(-40px);
+          transform: translateX(-20px);
         }
         to {
           transform: translateX(0px);
@@ -103,7 +106,7 @@
           <span class="name">Book Bot</span>
         </div>
 
-        <img class="iconName" src="assets/reload (1).png" alt="Icon" />
+        <img class="iconName" id="reload-button" src="assets/reload (1).png" alt="Icon" />
       </h1>
     </header>
     <div id="chat-container">
@@ -112,6 +115,22 @@
     </div>
 
     <script>
+      
+  const reloadButton = document.getElementById("reload-button");
+  reloadButton.addEventListener("click", function () {
+    // Start the .iconName animation
+    const iconName = document.querySelector(".iconName");
+    this.classList.toggle('spin');
+ 
+    // Clear the chatMessages div to remove all chat history
+    chatMessages.innerHTML = "";
+
+    // You can also reset any other chat-related variables or states if needed
+
+    // Optionally, you can perform any additional actions here before reloading
+  });
+     
+
       const chatMessages = document.getElementById("chat-messages");
       const userInput = document.getElementById("user-input");
 
@@ -156,26 +175,6 @@
         }
       }
 
-      // function displayMessage(sender, message) {
-      //   const messageElement = document.createElement("div");
-      //   const iconElement = document.createElement("img");
-      //   iconElement.classList.add("icon");
-      //   if (sender === "User") {
-      //     iconElement.src = "assets/userIcon.png";
-      //   } else if (sender === "Chatbot") {
-      //     iconElement.src = "assets/botIcon.png";
-      //   }
-      //   messageElement.appendChild(iconElement);
-
-      //   const textElement = document.createElement("div");
-      //   textElement.classList.add("message-text");
-      //   textElement.innerHTML = message;
-
-      //   messageElement.appendChild(textElement);
-      //   messageElement.classList.add("message");
-
-      //   chatMessages.appendChild(messageElement);
-      // }
       function displayMessage(sender, message) {
         const messageElement = document.createElement("div");
         const iconElement = document.createElement("img");

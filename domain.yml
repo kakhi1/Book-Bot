@@ -11,6 +11,9 @@ intents:
   - who_creator
   - get_book_price
   - get_book_info
+  - ask_buy_book
+  
+  
 
 entities:
   - book_name
@@ -24,13 +27,16 @@ slots:
 
 actions: 
   - action_get_book_price
-  - action_present_yourself
-  - action_present_choices
   - action_get_book_info
+  
 
 responses:
+
+  utter_findout:
+    - text: "What kind of book are you looking for? Do you know the name, author, or any description?"
+
   utter_greet:
-    - text: "Hey! How are you?"
+    - text: "Hey! How can I help you today?"
 
   utter_cheer_up:
     - text: "Here is something to cheer you up:"
