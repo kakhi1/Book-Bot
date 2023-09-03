@@ -1,0 +1,19 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPik/Pzu+oCgzObW2NhYA8nEfKg==": "action_get_book_price",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPik/Pzu+oCgzObWWOMPQNBE0NBYAtbU/0A==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPik/Pzs+My8tv7Y2FgDTRx7D": "action_get_book_info",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPik/Pzs+My8tv5Y4s1D1EDIyFgD1Az6b": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpbhMiAUAQvc0lw==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAVicXZ8UmllfFJ+fnZtbWxAN4NUUw=": "utter_findout",
+    "eJydjlEKgCAQBa/iATqBV4lYtLYQaw1dgxDvnmA/QWD09x4Mw/QpdyLtHg9QIxtHUqQ6gNSGUtxnNYGRChsD+sIYKpelWDwi54YjMqOHiv4zNCpUsKDjCdo5+y1mNjS5+JLzVA0X6C9uIQ==": "action_listen",
+    "eJydkNEJwzAMBVfxAJ3Aq5QinPS1iCRykOVCMd49JulnwG3/9OA4Dl1LvbiyKl4URuMo3pXjIAkLvPuMmZNBGpsTtDEsbZp3TwWsdhzZDEoH+p+hUxHSREN+0xDj9F3Mg+Ue80nOL6reb2C7hlblEbXeNnYWi5o=": "action_get_book_price",
+    "eJydkNEJwzAMRFfxAJ3Aq5QinPRSRFI5yHKgmOxe0+QrFJz2Twd3j4euZb24MisWCr1xFO/KdpCEJ7zbw8TJILWbE7R2WGo07x4K2NpgZDMobdX/CA2LkEbq8ou6GMdzMgPLPeYvOr+gWr+BfTA0K/c4CTuMmtDbGzymrEA=": "action_listen",
+    "eJytkGEKwjAMha/SA3iCXmVI6OZTwmY60lSQsrtbnL9E7JT9y4OXjy/pynJwZVbcKAzGUbwr60ASrvDuFSZOBqndnKC1w1KjeXdRwJYGI5tBaa3+R2hYhDRSn+/UxzhukzmznGL+oPMLqvUb2BNDs/KAjbC3pX2g3wwnlnro8QHHMsdK": "action_get_book_link",
+    "eJytkGEKgzAMha/SA+wEvcoYobpsBF0qaSqM4t1XVPwhw9axf3nw3peXXNN0MWkQHMG1Sp6tScsA7F5ozSp6CoqcvTGgZA9xlmrNUxB1KjCiKgos1t8IhRYudNDENzTed3VlHsR3H7/UOYMq/QZ1xsAg1GIlbBf6D/SoYU9ce+i2e84c0G4fESvlHA==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPrG0JCO/KD4pPz+7uLY2FgAy3CAd": "action_find_Books_by_author",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPrG0JCO/KD4pPz+7uJY449Iy81LinUAa4pMqoQYQY3gsAF9uRCQ=": "action_listen"
+  }
+}

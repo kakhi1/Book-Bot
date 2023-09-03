@@ -188,6 +188,22 @@ nlu:
       - How much do [Terry Pratchett](author_name)'s books cost?
       - Find books authored by [Margaret Atwood](author_name).
 
+  - intent: get_link
+    examples: |
+      - I'm interested in this book; can you give me a link to purchase it?
+      - Could you please provide me with a link to buy this book?
+      - I'd like to explore more about this book. Can you share a link?
+      - Where can I find a link to order this book?
+      - I want to buy this book. Can you give me the link?
+      - Do you have a link to the page where I can purchase this book ?
+      - I'm ready to make a purchase. Give me the link, please.
+      - Can you direct me to the link for buying this book?
+      - I'd appreciate it if you could share the link to this book's page.
+      - Where's the link to purchase this book?
+      - Can you provide me with a link to purchase this book?
+      - I'm interested in buying a book, could you help me find it?
+      - How can I order a copy of this book?
+
   # - intent: ask_choose_book
   #   examples: |
   #     - I'm looking for a good book to read. Can you recommend one?
@@ -200,26 +216,3 @@ nlu:
   #     - I need help deciding on a book. What do you suggest?
   #     - Recommend a book based on my interests.
   #     - Tell me about some highly-rated books you recommend.
-
-  # - intent:
-  #   examples: |
-  #     - I'm interested in purchasing a science fiction book
-  #     - What sci-fi books do you have available?
-  #     - Do you carry any classic novels?
-  #     - Can you suggest a hardcover book for me?
-  #     - I'm in the mood for a mystery novel. Any recommendations?
-  #     - I'm looking for "The Catcher in the Rye" by J.D. Salinger
-  #     - Do you have any books by Stephen King?
-  #     - I'd like to buy a fantasy novel
-  #     - Show me your bestsellers in fiction
-  #     - Any new releases in non-fiction?
-  #     - Can you tell me about your self-help book selection?
-  #     - I want to explore your romance novels
-  #     - Show me books for kids
-  #     - What's popular in young adult fiction?
-  #     - Do you have any historical novels in stock?
-  #     - Can you recommend a biography for me?
-  #     - I'm searching for a cookbook
-  #     - Show me books on mindfulness and meditation
-  #     - Can I see your poetry book collection?
-  #     - Any graphic novels available?

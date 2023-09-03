@@ -9,6 +9,7 @@ stories:
       - action: utter_findout
       - intent: get_book_price
       - action: action_get_book_price
+
   - story: book price autor name
     steps:
       - intent: greet
@@ -59,3 +60,8 @@ stories:
     steps:
       - intent: get_author_books
       - action: action_find_Books_by_author
+
+  - story: Get book selling lin
+    steps:
+      - intent: get_link
+      - action: action_get_book_link

@@ -14,11 +14,12 @@ from rasa_sdk.executor import CollectingDispatcher
 import os
 import json
 from dotenv import load_dotenv
+import  openai
 
 load_dotenv(".env")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-class ActionBooksAPI(Action):
+class ActionBooksPrice(Action):
     def name(self) -> Text:
         return "action_get_book_price"
 
@@ -40,7 +41,7 @@ class ActionBooksAPI(Action):
     
         response = requests.get(base_url, params=params)
         data = response.json()
-        print(json.dumps(data, indent=4))
+        # print(json.dumps(data, indent=4))
         
 
         if "items" in data:
@@ -67,7 +68,7 @@ class ActionBooksAPI(Action):
     
         dispatcher.utter_message(price_message)
 
-class ActionBooksAPI(Action):
+class ActionBooksDescription(Action):
 
     def name(self) -> Text:
         return "action_get_book_info"  
@@ -104,42 +105,69 @@ class ActionBooksAPI(Action):
     
         return []
 
-class ActionDefaultFallback(Action):
-    def name(self) -> Text:
+class ActionGetBooksNamesByAuthor(Action):
+    def name(self):
         return "action_find_Books_by_author"
 
-    def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict):
+        # Set your OpenAI API key here
+        openai.api_key = OPENAI_API_KEY
+
+        # Get the value of the 'author_name' slot
+        author_name = tracker.get_slot("author_name")
+
+        # Define the messages for the OpenAI GPT-3 request
+        messages = [
+            {"role": "system", "content":"Name up to seven of the best  books by this author, but please only include the book titles."},
+            {"role": "user", "content": f"Generate content by {author_name}"}
+        ]
+
+        # Create a request to the OpenAI GPT-3 model
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+
+        # Get the response from the model
+        response = completion.choices[0].message["content"]
+
+        # Send the response back to the user
+        dispatcher.utter_message(response)
+
+class ActionBooksLink(Action):
+
+    def name(self) -> Text:
+        return "action_get_book_link"  
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        book_name = tracker.get_slot('book_name')
+        base_url = "https://www.googleapis.com/books/v1/volumes"
     
-        # Get user message from Rasa tracker
-        author_name = tracker.latest_message.get('author_name')
-        print(author_name)
-
-        url = 'https://api.openai.com/v1/chat/completions'
-        headers = {
-            'Authorization': "OPEANAI_API_KEY",
-            'Content-Type': 'application/json'
+        params = {
+            "q": f"intitle:{book_name}",
+            "country": 'US',
+            "key": GOOGLE_API_KEY ,
+            
         }
-        data = {
-            'model': "gpt-3.5-turbo",
-            'messages': [
-                {'role': 'system', 'content': 'You are  chatbot name "book bot ". You will Find the names of books by author. Maxumum 7 books'},
-                {'role': 'user', 'content': 'You: ' + author_name}
-            ],
-            'max_tokens': 100
-        }
-        response = requests.post(url, headers=headers, json=data)
+    
+        response = requests.get(base_url, params=params)
+        data = response.json()
+        print(data)
 
-        if response.status_code == 200:
-            chatgpt_response = response.json()
-            message = chatgpt_response['choices'][0]['message']['content']
-            dispatcher.utter_message(message)
-            print(message)
+        if "items" in data:
+            book_info = data["items"][0]
+            self.display_description(dispatcher, book_info)
         else:
-            # Handle error and return an event to indicate the action failed
-            dispatcher.utter_message("Sorry, I couldn't generate a response at the moment. Please try again later.")
-           
+            dispatcher.utter_message("Book not found.")
+
+        return []
+
+    def display_description(self, dispatcher: CollectingDispatcher, book_info):
+        volume_info = book_info.get("volumeInfo", {})
+        link = volume_info.get("previewLink", "Selling link not available.")
+
+        dispatcher.utter_message(link)
+    
+        return []

@@ -13,6 +13,7 @@ intents:
   - get_book_info
   - ask_buy_book
   - get_author_books
+  - get_link
 
 entities:
   - book_name
@@ -35,6 +36,7 @@ actions:
   - action_get_book_price
   - action_get_book_info
   - action_find_Books_by_author
+  - action_get_book_link
 
 responses:
   utter_findout:
