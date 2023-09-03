@@ -204,6 +204,29 @@ nlu:
       - I'm interested in buying a book, could you help me find it?
       - How can I order a copy of this book?
 
+  - intent: get_recommendation
+    examples: |
+      - Can you recommend a [good self-help](recommendation) book ?
+      - Could you suggest a [thrilling mystery](recommendation) book?
+      - Can you recommend a [fantasy adventure](recommendation) book?
+      - I want to read a [humorous memoir](recommendation), any suggestions?
+      - Can you suggest a [self-help](recommendation) book ?
+      - Could you recommend a [historical fiction](recommendation) book?
+      - Can you suggest a [sci-fi](recommendation) book set in outer space?
+      - I love [true crime](recommendation) stories, any recommendations?
+      - Could you suggest a [psychological thriller] (recommendation) book?
+      - Can you recommend a [classic novel] (recommendation)?
+      - Could you suggest a [travelogue](recommendation) book ?
+      - Can you recommend a book about [cultural explorations] (recommendation)?
+      - I enjoy reading [biographies] (recommendation), any suggestions?
+      - Can you recommend a thought-provoking [non-fiction] (recommendation) book?
+      - Could you suggest a book about [business strategies] (recommendation)?
+      - Can you recommend a children's book with [important life lessons] (recommendation)?
+      - Could you suggest an [informative and engaging history] (recommendation) book?
+      - Can you recommend a [poetry] (recommendation) book that evokes deep emotions?
+      - Could you suggest a [healthy and easy] (recommendation) cookbook?
+      - Can you recommend an [inspiring sports biography] (recommendation)?
+
   # - intent: ask_choose_book
   #   examples: |
   #     - I'm looking for a good book to read. Can you recommend one?

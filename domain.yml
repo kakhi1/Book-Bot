@@ -14,10 +14,12 @@ intents:
   - ask_buy_book
   - get_author_books
   - get_link
+  - get_recommendation
 
 entities:
   - book_name
   - author_name
+  - recommendation
 
 slots:
   book_name:
@@ -25,6 +27,12 @@ slots:
     mappings:
       - type: from_entity
         entity: book_name
+
+  recommendation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: recommendation
 
   author_name:
     type: text
@@ -37,6 +45,7 @@ actions:
   - action_get_book_info
   - action_find_Books_by_author
   - action_get_book_link
+  - action_get_book_recommendation
 
 responses:
   utter_findout:

@@ -86,7 +86,7 @@ class ActionBooksDescription(Action):
             book_info = data["items"][0]
             self.display_description(dispatcher, book_info)
         else:
-            dispatcher.utter_message("Book not found.")
+            dispatcher.utter_message("I'm sorry, but it seems like we don't have the book you're looking for.")
 
         return []
 
@@ -154,14 +154,43 @@ class ActionBooksLink(Action):
             book_info = data["items"][0]
             self.display_description(dispatcher, book_info)
         else:
-            dispatcher.utter_message("Book not found.")
+            dispatcher.utter_message("I'm sorry, but it seems like we don't have the book you're looking for.")
 
         return []
 
     def display_description(self, dispatcher: CollectingDispatcher, book_info):
         volume_info = book_info.get("volumeInfo", {})
-        link = volume_info.get("previewLink", "Selling link not available.")
+        link = volume_info.get("previewLink", "Apologies, but it seems that the link for purchase is currently unavailable.")
 
         dispatcher.utter_message(link)
     
         return []
+
+class ActionGetBookBy(Action):
+    def name(self):
+        return "action_get_book_recommendation"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict):
+        # OpenAI API 
+        openai.api_key = "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"
+        # Get the value of the 'author_name' slot
+        recommendation = tracker.get_slot("recommendation")
+        print(f"recomendatia:{recommendation}")
+
+        # Define the messages for the OpenAI GPT-3 request
+        messages = [
+            {"role": "system", "content":"You should recommend one book. only  book titles."},
+            {"role": "user", "content": f"Generate content by {recommendation}"}
+        ]
+
+        # Create a request to the OpenAI GPT-3 model
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+
+        # Get the response from the model
+        response = completion.choices[0].message["content"]
+
+        # Send the response back to the user
+        dispatcher.utter_message(response)
