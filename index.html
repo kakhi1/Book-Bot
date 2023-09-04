@@ -113,92 +113,111 @@
       <div id="chat-messages"></div>
       <input type="text" id="user-input" placeholder="Type your message" />
     </div>
-
-    <script>
+    <script>      
+        const reloadButton = document.getElementById("reload-button");
+        reloadButton.addEventListener("click", function () {
+            // Start the .iconName animation
+            const iconName = document.querySelector(".iconName");
+            this.classList.toggle('spin');
+            // Clear the chatMessages div to remove all chat history
+            chatMessages.innerHTML = "";
+            resetChatbot();
+            console.log('davaklike')
+        });
       
-  const reloadButton = document.getElementById("reload-button");
-  reloadButton.addEventListener("click", function () {
-    // Start the .iconName animation
-    const iconName = document.querySelector(".iconName");
-    this.classList.toggle('spin');
- 
-    // Clear the chatMessages div to remove all chat history
-    chatMessages.innerHTML = "";
 
-    // You can also reset any other chat-related variables or states if needed
-
-    // Optionally, you can perform any additional actions here before reloading
-  });
-     
-
-      const chatMessages = document.getElementById("chat-messages");
-      const userInput = document.getElementById("user-input");
-
-      userInput.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-          sendMessage(userInput.value);
-          userInput.value = "";
-        }
-      });
-
-      async function sendMessage(message) {
-        displayMessage("User", message);
-
-        try {
-          const response = await fetch(
-            "http://localhost:8098/webhooks/rest/webhook",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                sender: "test1",
-                message: message,
-              }),
-            }
-          );
-
-          const data = await response.json();
-          console.log(data);
-          const botResponse = data.map((message) => {
-            if (message.text !== undefined) {
-              return message.text;
-            } else if (message.image !== undefined) {
-              return message.image;
+        const chatMessages = document.getElementById("chat-messages");
+        const userInput = document.getElementById("user-input");
+        userInput.addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            sendMessage(userInput.value);
+            userInput.value = "";
             }
           });
 
-          displayMessage("Chatbot", botResponse);
-        } catch (error) {
-          console.error("Error:", error);
+        async function sendMessage(message) {
+          displayMessage("User", message);
+
+          try {
+            const response = await fetch(
+              "http://localhost:8098/webhooks/rest/webhook",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  sender: "test1",
+                  message: message,
+                }),
+              }
+            );
+
+            const data = await response.json();
+            console.log(data);
+            const botResponse = data.map((message) => {
+              if (message.text !== undefined) {
+                return message.text;
+              } else if (message.image !== undefined) {
+                return message.image;
+              }
+            });
+
+            displayMessage("Chatbot", botResponse);
+          } catch (error) {
+            console.error("Error:", error);
+          }
         }
-      }
 
-      function displayMessage(sender, message) {
-        const messageElement = document.createElement("div");
-        const iconElement = document.createElement("img");
-        iconElement.classList.add("icon");
-        const textElement = document.createElement("div");
-        textElement.classList.add("message-text");
+        async function resetChatbot() {
+          try {
+            const response = await fetch(
+              "http://localhost:8098/webhooks/rest/webhook",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  sender: "test1",
+                  message: "action_restart",
+                }),
+              }
+            );
 
-        if (sender === "Chatbot") {
-          // Display "Chatbot" messages first
-          iconElement.src = "assets/botIcon.png";
-          textElement.innerHTML = message;
-          messageElement.appendChild(iconElement);
-          messageElement.appendChild(textElement);
-        } else if (sender === "User") {
-          // Display "User" messages last
-          textElement.innerHTML = message;
-          messageElement.appendChild(textElement);
-          iconElement.src = "assets/userIcon.png";
-          messageElement.appendChild(iconElement);
+            const data = await response.json();
+            console.log(data);
+
+            // Handle the bot's response if necessary
+            // For a restart action, you might not need to handle the response.
+          } catch (error) {
+            console.error("Error:", error);
+          }
         }
+        function displayMessage(sender, message) {
+          const messageElement = document.createElement("div");
+          const iconElement = document.createElement("img");
+          iconElement.classList.add("icon");
+          const textElement = document.createElement("div");
+          textElement.classList.add("message-text");
 
-        messageElement.classList.add("message");
-        chatMessages.appendChild(messageElement);
-      }
+          if (sender === "Chatbot") {
+            // Display "Chatbot" messages first
+            iconElement.src = "assets/botIcon.png";
+            textElement.innerHTML = message;
+            messageElement.appendChild(iconElement);
+            messageElement.appendChild(textElement);
+          } else if (sender === "User") {
+            // Display "User" messages last
+            textElement.innerHTML = message;
+            messageElement.appendChild(textElement);
+            iconElement.src = "assets/userIcon.png";
+            messageElement.appendChild(iconElement);
+          }
+
+          messageElement.classList.add("message");
+          chatMessages.appendChild(messageElement);
+        }
     </script>
   </body>
 </html>

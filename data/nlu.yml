@@ -30,6 +30,26 @@ nlu:
       - bye bye
       - see you later
 
+  - intent: end_conv
+    examples: |
+      - no
+      - thank you
+      - no, thank you
+      - no, I'm good
+      - I'm fine, thanks
+      - not interested
+      - no more help needed
+      - thanks, but I'm okay
+      - I'm all set
+      - no help required
+      - no assistance needed
+      - I'm good for now
+      - I've got it covered
+      - no need to help
+      - I'm okay on my own
+      - I can manage by myself
+
+
   - intent: affirm
     examples: |
       - yes
@@ -226,16 +246,3 @@ nlu:
       - Can you recommend a [poetry] (recommendation) book that evokes deep emotions?
       - Could you suggest a [healthy and easy] (recommendation) cookbook?
       - Can you recommend an [inspiring sports biography] (recommendation)?
-
-  # - intent: ask_choose_book
-  #   examples: |
-  #     - I'm looking for a good book to read. Can you recommend one?
-  #     - What books are popular right now? Can you suggest something?
-  #     - Help me find a book that suits my taste.
-  #     - I want to explore new books. Any recommendations?
-  #     - Can you give me some book suggestions?
-  #     - I'm not sure what to read next. Can you provide some options?
-  #     - Suggest a book that's suitable for someone who enjoys [genre].
-  #     - I need help deciding on a book. What do you suggest?
-  #     - Recommend a book based on my interests.
-  #     - Tell me about some highly-rated books you recommend.

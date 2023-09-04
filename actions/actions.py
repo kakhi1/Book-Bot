@@ -7,10 +7,12 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
+from tkinter import EventType
 from typing import Any, Text, Dict, List
 import requests
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet, AllSlotsReset, Restarted
 import os
 import json
 from dotenv import load_dotenv
@@ -172,14 +174,14 @@ class ActionGetBookBy(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict):
         # OpenAI API 
-        openai.api_key = "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"
+        openai.api_key = "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"
         # Get the value of the 'author_name' slot
         recommendation = tracker.get_slot("recommendation")
         print(f"recomendatia:{recommendation}")
 
         # Define the messages for the OpenAI GPT-3 request
         messages = [
-            {"role": "system", "content":"You should recommend one book. only  book titles."},
+            {"role": "system", "content":"You should recommend {recommendation} one book. write only book name, no description, no author, just book name."},
             {"role": "user", "content": f"Generate content by {recommendation}"}
         ]
 
@@ -194,3 +196,33 @@ class ActionGetBookBy(Action):
 
         # Send the response back to the user
         dispatcher.utter_message(response)
+        return [SlotSet("book_name", response)]
+    
+class ActionRestart(Action):
+
+    def name(self) -> Text:
+        return "action_restart"
+
+    async def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        
+        # Reset all slots in the tracker
+        for slot in tracker.slots.keys():
+            tracker.slots[slot] = None
+            print(f"darestartda ")
+        
+        # Clear any active forms
+        tracker.active_form = {}
+        
+        # Respond to the user
+        dispatcher.utter_message(template="utter_restart")
+        
+        # Return an empty list as the action result
+        return []
+    
+    
+    
+
+    
+    

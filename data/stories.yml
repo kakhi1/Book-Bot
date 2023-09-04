@@ -19,37 +19,13 @@ stories:
       - intent: get_book_price
       - action: action_get_book_price
 
-  # - story: happy path
-  #   steps:
-  #     - intent: greet
-  #     - action: utter_greet
-  #     - intent: mood_great
-  #     - action: utter_happy
-
-  # - story: sad path 1
-  #   steps:
-  #     - intent: greet
-  #     - action: utter_greet
-  #     - intent: mood_unhappy
-  #     - action: utter_cheer_up
-  #     - action: utter_did_that_help
-  #     - intent: affirm
-  #     - action: utter_happy
-
-  # - story: sad path 2
-  #   steps:
-  #     - intent: greet
-  #     - action: utter_greet
-  #     - intent: mood_unhappy
-  #     - action: utter_cheer_up
-  #     - action: utter_did_that_help
-  #     - intent: deny
-  #     - action: utter_goodbye
-
   - story: get book price
     steps:
       - intent: get_book_price
       - action: action_get_book_price
+      - action: utter_greet_end
+      - intent: end_conv
+      - action: utter_goodbye
 
   - story: get book description
     steps:
@@ -65,8 +41,12 @@ stories:
     steps:
       - intent: get_link
       - action: action_get_book_link
+      - action: utter_greet_end
+      - intent: end_conv
+      - action: utter_goodbye
 
   - story: Get book recomendation
     steps:
       - intent: get_recommendation
       - action: action_get_book_recommendation
+      
