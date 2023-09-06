@@ -18,14 +18,15 @@ stories:
       - action: utter_findout
       - intent: get_book_price
       - action: action_get_book_price
+      - action: utter_greet_end
+      - intent: end_conv
+      - action: utter_goodbye
 
   - story: get book price
     steps:
       - intent: get_book_price
       - action: action_get_book_price
-      - action: utter_greet_end
-      - intent: end_conv
-      - action: utter_goodbye
+
 
   - story: get book description
     steps:
@@ -49,4 +50,8 @@ stories:
     steps:
       - intent: get_recommendation
       - action: action_get_book_recommendation
-      
+
+  - story: Restart conversation
+    steps:
+      - intent: end_conv
+      - action: action_restart      

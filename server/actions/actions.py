@@ -6,6 +6,7 @@
 
 
 # This is a simple example for a custom action which utters "Hello World!"
+# python -m rasa run  --port 8098 --cors="*"
 
 from tkinter import EventType
 from typing import Any, Text, Dict, List
@@ -20,7 +21,9 @@ import  openai
 
 load_dotenv(".env")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
+
+
 
 
 class ActionBooksPrice(Action):
@@ -106,8 +109,7 @@ class ActionGetBooksNamesByAuthor(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict):
         # OpenAI API 
-        openai.api_key = OPENAI_API_KEY
-
+        openai.api_key=OPENAI_API_KEY
         # Get the value of the 'author_name' slot
         author_name = tracker.get_slot("author_name")
 
@@ -174,7 +176,7 @@ class ActionGetBookBy(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict):
         # OpenAI API 
-        openai.api_key = "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"
+        openai.api_key = OPENAI_API_KEY
         # Get the value of the 'author_name' slot
         recommendation = tracker.get_slot("recommendation")
         print(f"recomendatia:{recommendation}")
@@ -210,13 +212,16 @@ class ActionRestart(Action):
         # Reset all slots in the tracker
         for slot in tracker.slots.keys():
             tracker.slots[slot] = None
-            print(f"darestartda ")
+            print(f"Resetting slot {slot} to None") 
+           
         
         # Clear any active forms
         tracker.active_form = {}
+        print("Responding to the user")
         
         # Respond to the user
         dispatcher.utter_message(template="utter_restart")
+        print("Returning an empty list as the action result")
         
         # Return an empty list as the action result
         return []
