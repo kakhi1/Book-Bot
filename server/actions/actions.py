@@ -19,9 +19,11 @@ import json
 from dotenv import load_dotenv
 import  openai
 
-load_dotenv(".env")
+load_dotenv()
+
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-OPENAI_API_KEY= os.getenv("OPENAI_API_KEY")
 
 
 
@@ -110,14 +112,14 @@ class ActionGetBooksNamesByAuthor(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict):
         # OpenAI API 
-        openai.api_key=OPENAI_API_KEY
+        openai.api_key = OPENAI_API_KEY
         # Get the value of the 'author_name' slot
         author_name = tracker.get_slot("author_name")
         print(f"author_name:{author_name}")
 
         # Define the messages for the OpenAI GPT-3 request
         messages = [
-            {"role": "system", "content":"Name up to seven of the best  books by this author, but please only include the book titles."},
+            {"role": "system", "content":"Name up to seven of the best  books by this author, but only include the book titles."},
             {"role": "user", "content": f"Generate content by {author_name}"}
         ]
 
@@ -199,7 +201,8 @@ class ActionGetBookBy(Action):
         response = completion.choices[0].message["content"]
 
         # Send the response back to the user
-        dispatcher.utter_message(response)
+        message = f"Sure! Here's a {recommendation} book recommendation: {response}"
+        dispatcher.utter_message(message)
         return [SlotSet("book_name", response)]
     
 class ActionRestart(Action):

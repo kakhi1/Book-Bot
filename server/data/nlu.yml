@@ -132,6 +132,7 @@ nlu:
   - intent: get_book_price
     examples: |
       - What's the price of [Alice's Adventures in Wonderland](book_name)?
+      - What's the price of the book "[The Great Gatsby]"(book_name) by F. Scott Fitzgerald?
       - How much does [Moby-Dick](book_name) cost?
       - Can you tell me the price of [Pride and Prejudice](book_name)?
       - How much does [1984](book_name) cost?
@@ -152,6 +153,11 @@ nlu:
       - I'm interested in [The Shining](book_name), what's the price?
       - Could you find the price of [A Tale of Two Cities](book_name)?
       - What's the price of [The Lord of the Flies](book_name)?
+      - What's the price of the book [Educated](book_name) by Tara Westover?
+      - What's the price of [The Lord of the Rings](book_name) trilogy by J.R.R. Tolkien?
+      - What's the price of the book [The Hunger Games](book_name) by Suzanne Collins?
+      - What's the price of [Brave New World](book_name) by Aldous Huxley?
+
 
   - intent: get_book_info
     examples: |
@@ -207,6 +213,8 @@ nlu:
       - Can you give me information about [Neil Gaiman's](author_name) novels?
       - How much do [Terry Pratchett](author_name)'s books cost?
       - Find books authored by [Margaret Atwood](author_name).
+      - Do you have any books by [Dan Brown](author_name)?
+      - Do you have any books by [Ernest Hemingway](author_name)?
 
   - intent: get_link
     examples: |
@@ -246,3 +254,56 @@ nlu:
       - Can you recommend a [poetry] (recommendation) book that evokes deep emotions?
       - Could you suggest a [healthy and easy] (recommendation) cookbook?
       - Can you recommend an [inspiring sports biography] (recommendation)?
+      - Can you recommend a [captivating thriller novel](recommendation) for someone who loves suspense?
+      - Could you suggest a [heart-pounding crime fiction](recommendation) book that will keep me on the edge of my seat?
+      - Can you recommend an [exciting mystery thriller](recommendation) with a clever plot twist?
+      - I'm in the mood for a [gripping psychological suspense](recommendation) book that will keep me guessing until the end.
+      - Could you suggest a [suspenseful detective novel](recommendation) with a compelling storyline?
+      - Can you recommend a [chilling mystery](recommendation) book for fans of the genre?
+      - I'm looking for a [thrilling page-turner](recommendation) with a strong female protagonist, any suggestions?
+      - Could you suggest a [suspenseful crime thriller](recommendation) that will leave me wanting more?
+      - Can you recommend a [gripping suspense novel](recommendation) that explores the darkest corners of the human mind?
+      - I'm in the mood for a [tense mystery](recommendation) book set in a small, eerie town, any recommendations?
+      - Could you suggest a [compelling psychological thriller](recommendation) that delves into the depths of human psyche?
+      - Can you recommend an [intense suspense](recommendation) book with a mind-blowing ending?
+      - I'm looking for a [captivating mystery](recommendation) novel that will keep me hooked from start to finish, any suggestions?
+      - Could you suggest a [nail-biting crime fiction](recommendation) book that will keep me guessing until the last page?
+      - Can you recommend a [suspenseful thriller](recommendation) with a unique and unpredictable plot?
+      - I'm in the mood for a [gripping mystery](recommendation) with well-developed characters, any recommendations?
+      - Could you suggest a [compelling detective novel](recommendation) that approaches the genre in a fresh and unique way?
+      - Can you recommend a [suspense-filled page-turner](recommendation) with unexpected twists and turns?
+      - I'm looking for a [gripping psychological crime thriller](recommendation) that explores the dark side of the human psyche, any suggestions?
+      - Could you suggest a [haunting mystery](recommendation) book that will keep me guessing until the very end?
+      - Can you recommend a [chilling suspense](recommendation) novel with a shocking revelation?
+      - I'm in the mood for a [twisted psychological thriller](recommendation) that will leave me questioning everything, any recommendations?
+      - Could you suggest a [captivating mystery](recommendation) with a richly detailed setting?
+      - Can you recommend a [suspenseful crime fiction](recommendation) book that delves into the complexities of the criminal mind?
+      - I'm looking for a [gripping detective novel](recommendation) filled with unexpected twists and turns, any suggestions?
+      - Could you suggest a [compelling psychological suspense](recommendation) book with a strong sense of atmosphere?
+      - Can you recommend a [chilling thriller](recommendation) that will keep me on the edge of my seat until the very end?
+      - I'm in the mood for a [gripping mystery](recommendation) with a shocking plot twist, any recommendations?
+      - Could you suggest a [suspenseful crime thriller](recommendation) that will keep me guessing until the final chapter?
+      - Can you recommend a [captivating suspense](recommendation) novel that explores the dark side of human nature?
+      - I'm looking for a [haunting mystery](recommendation) book that will leave me haunted long after I finish reading, any suggestions?
+      - I'm interested in finding a book about [history] (recommendation). Any suggestions?
+      - Can you suggest a book by a [popular author](recommendation)?
+      - Can you recommend a book with a [strong female protagonist](recommendation)?
+      - I'm looking for a book set in a [post-apocalyptic world](recommendation). Any ideas?
+      - Can you suggest a book with a [romantic storyline](recommendation)?
+      - I want to read a book that has [won a literary award](recommendation). Any suggestions?
+      - I'm interested in reading a [non-fiction book](recommendation). Any recommendations? 
+      - Can you suggest a book that's been [turned into a movie](recommendation)?
+      - Can you recommend a book with [a coming-of-age theme](recommendation)?
+      - I want to read a book that explores a [different culture](recommendation). Any recommendations?
+      - I'm interested in reading a [biography](recommendation). Any suggestions?
+      - Can you suggest a book with a [philosophical theme](recommendation)?
+      - Can you recommend a book with a [unique and original premise](recommendation)?
+      - I'm looking for a book about [science and technology](recommendation). Any suggestions?
+      - Can you suggest a book with a [supernatural element](recommendation)?
+      - I want to read a book that's [set in a different country](recommendation). Any ideas? 
+      - Can you recommend a book with a [political theme](recommendation)?
+      - I'm interested in reading a book that [tackles social issues](recommendation). Any suggestions?
+      - Can you suggest a book with a [twist ending](recommendation)? 
+      - Can you recommend a book with a [strong emphasis on friendship](recommendation)?
+      - I'm looking for a book that's been [critically acclaimed](recommendation). Any suggestions?
+      - I'm interested in finding a book [about history](recommendation). Any suggestions?    
