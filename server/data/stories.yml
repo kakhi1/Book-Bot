@@ -1,14 +1,6 @@
 version: "3.1"
 
 stories:
-  - story: book price with book name path
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_buy_book
-      - action: utter_findout
-      - intent: get_book_price
-      - action: action_get_book_price
 
   - story: book price autor name
     steps:
@@ -55,3 +47,12 @@ stories:
     steps:
       - intent: end_conv
       - action: action_restart      
+
+  # - story: book price with book name path
+  #   steps:
+  #     - intent: greet
+  #     - action: utter_greet
+  #     - intent: ask_buy_book
+  #     - action: utter_findout
+  #     - intent: get_book_price
+  #     - action: action_get_book_price

@@ -15,6 +15,7 @@ intents:
   - get_author_books
   - get_link
   - get_recommendation
+  - end_conv
 
 entities:
   - book_name

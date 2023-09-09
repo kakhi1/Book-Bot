@@ -76,6 +76,7 @@ class ActionBooksDescription(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         book_name = tracker.get_slot('book_name')
+        print(f"book_name:{book_name}")
         base_url = "https://www.googleapis.com/books/v1/volumes"
     
         params = {
@@ -112,6 +113,7 @@ class ActionGetBooksNamesByAuthor(Action):
         openai.api_key=OPENAI_API_KEY
         # Get the value of the 'author_name' slot
         author_name = tracker.get_slot("author_name")
+        print(f"author_name:{author_name}")
 
         # Define the messages for the OpenAI GPT-3 request
         messages = [
