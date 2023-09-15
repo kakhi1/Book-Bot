@@ -8,14 +8,12 @@
 # This is a simple example for a custom action which utters "Hello World!"
 # python -m rasa run  --port 8098 --cors="*"
 
-from tkinter import EventType
 from typing import Any, Text, Dict, List
 import requests
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, AllSlotsReset, Restarted
 import os
-import json
 from dotenv import load_dotenv
 import  openai
 

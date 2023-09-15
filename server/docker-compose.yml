@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  rasa:
+    image: rasa/rasa:3.6.8-full
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    command:
+      - run
+  app:
+    image: kakhi1/book-bot:v1.0
+    expose: [5055]
