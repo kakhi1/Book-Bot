@@ -18,7 +18,3 @@ COPY ./actions /app/actions
 
 # By best practices, don't run the code with root user
 USER 1001
-
-COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["run", "--enable-api", "--cors", "*", "--debug"]

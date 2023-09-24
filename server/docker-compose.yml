@@ -6,8 +6,21 @@ services:
       - 5005:5005
     volumes:
       - ./:/app
+      - ./models:/app/models
     command:
       - run
+      - --cors
+      - "*"
+
   app:
-    image: kakhi1/book-bot:v1.0
-    expose: [5055]
+    image: kakhi/bookbot:v21
+    expose:
+      - 5055:5055
+
+  frontend:
+    image: nginx:1.21.3-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ../frontend:/usr/share/nginx/html
+      - ../frontend/default.conf:/etc/nginx/conf.d/default.conf
