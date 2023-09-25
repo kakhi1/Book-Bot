@@ -14,7 +14,7 @@ services:
 
   app:
     image: kakhi/bookbot:v21
-     ports:
+    ports:
       - 5055:5055
 
   frontend:
