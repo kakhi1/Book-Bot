@@ -1,20 +1,64 @@
-# Extend the official Rasa SDK image
-FROM rasa/rasa-sdk:3.6.2
 
-# Use subdirectory as working directory
+
+#  Build the Rasa chatbot
+FROM rasa/rasa:3.6.2
+
 WORKDIR /app
 
-# Copy any additional custom requirements, if necessary (uncomment next line)
-COPY actions/requirements-actions.txt ./
+# Copy Rasa project files into the container
+COPY . /app
+
+COPY requirements-actions.txt ./
 
 # Change back to root user to install dependencies
 USER root
 
-# Install extra requirements for actions code, if necessary (uncomment next line)
 RUN pip install -r requirements-actions.txt
 
-# Copy actions folder to working directory
-COPY ./actions /app/actions
+RUN pip install rasa
+
+
+
+RUN apt-get update -qq && \
+  apt-get install -y --no-install-recommends \
+  python3 \
+  python3-venv \
+  python3-pip \
+  python3-dev \
+  # required by psycopg2 at build and runtime
+  libpq-dev \
+  # required for health check
+  curl \
+  && apt-get autoremove -y
+
+# Make sure that all security updates are installed
+RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends
+
+# Download spacy language data
+RUN python -m spacy download en_core_web_md
 
 # By best practices, don't run the code with root user
 USER 1001
+
+# Copy the domain.yml, config.yml, and credentials.yml files into the container
+COPY domain.yml /app
+COPY config.yml /app
+COPY credentials.yml /app
+
+
+# Expose the Rasa API port
+EXPOSE 8080
+
+
+ENTRYPOINT ["rasa"]
+
+# Set the default command to run the Rasa server with CORS enabled
+CMD ["run", "--enable-api", "--cors", "*"]
+
+
+
+
+
+
+
+
