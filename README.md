@@ -39,7 +39,7 @@ Before you can run the chatbot, you need to set up the required environment and 
 ### Clone this repository:
 
 - https://github.com/kakhi1/Book-Bot.git
-- cd your-chatbot-repo
+- cd Book-Bot
 
 ### Install the required Python dependencies:
 - pip install -r requirements.txt
@@ -74,6 +74,38 @@ Before you can run the chatbot, you need to set up the required environment and 
 - Thanks to Google for the Google Books API.
 - Thanks to OpenAI for the recommendation capabilities.
     
+
+## Dockerization
+
+#### To Dockerize the project, we'll create separate Dockerfiles for the Rasa chatbot, custom actions server, and the NGINX frontend server.
+
+
+## Rasa Chatbot Dockerfile
+
+     ```shell
+     docker build . -t <account_username>/<repository_name>:<custom_image_tag>
+     docker run -d -p 8098:5005 <account_username>/<repository_name>:<custom_image_tag>
+
+## Custom Actions Server Dockerfile
+
+    ```shell
+    docker build . -t <account_username>/<repository_name>:<custom_image_tag>
+    docker run -d  <account_username>/<repository_name>:<custom_image_tag>
+
+## NGINX Frontend Dockerfile
+
+    ```shell
+    docker build . -t <account_username>/<repository_name>:<custom_image_tag>
+    docker run -d -p 80:80 <account_username>/<repository_name>:<custom_image_tag>
+
+ Now you have the Rasa chatbot, custom actions server, and NGINX frontend server running in separate Docker containers.
+ When deploying the action server image, you need to add the endpoint.yml file to the Rasa chatbot. Then, the Rasa chatbot URL can be used for front-end post requests.
+
+## Usage
+
+  Access the chatbot via the HTML front-end by opening the index.html file in your web browser.
+ Interact with the chatbot by providing queries for book information and recommendations.
+
 ### Contact
     
 - Kakhi Mtchedluri
