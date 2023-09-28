@@ -1,5 +1,3 @@
-
-
 #  Build the Rasa chatbot
 FROM rasa/rasa:3.6.2
 
@@ -53,7 +51,7 @@ EXPOSE 8080
 ENTRYPOINT ["rasa"]
 
 # Set the default command to run the Rasa server with CORS enabled
-CMD ["run", "--enable-api", "--cors", "*"]
+CMD ["run", "--enable-api", "--cors", "*", "--port", "8080"]
 
 
 

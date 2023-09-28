@@ -52,7 +52,7 @@ async function sendMessage(message) {
 
   try {
     const response = await fetch(
-      "http://localhost:5005/webhooks/rest/webhook",
+      "https://bookbot-6an3ogkgka-uc.a.run.app/webhooks/rest/webhook",
       {
         method: "POST",
         headers: {
